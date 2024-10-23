@@ -7,6 +7,9 @@ import searchIcon from '../assets/searchIcon.png';
 import bellNotification from '../assets/notificationBell.png';
 import userIcon from "../assets/IconUser.png";
 import RedirectIcon from "../assets/redirect.png";
+import { CircleArrowDown } from 'lucide-react';
+import HomeIcon from '@mui/icons-material/Home';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,46 +18,30 @@ const NavBar = () => {
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
- 
+
     const isHomePage = location.pathname === "/";
 
     return (
-        <nav className='flex flex-row w-full justify-between items-center'>
-            <div className="flex items-center space-x-4">
+        <nav className='flex z-50  flex-row w-full justify-between items-center'>
+            <div className="flex items-center ml-5 flex-shrink-0 space-x-4">
                 <Link to="/">
                     <img src={spotifyBlackLogo} className="h-10 filter invert cursor-pointer" alt="Spotify" />
                 </Link>
             </div>
-            <div className="flex flex-1 items-center justify-center relative">
+            <div className="flex ml-32 flex-grow items-end justify-center relative">
                 <Link
                     to="/"
                     className="p-2 mr-2 bg-dark-gray rounded-full cursor-pointer active:grayscale transition transform active:scale-100 hover:scale-105"
                     id="home"
                 >
-                    <svg
-                        version="1.1"
-                        id="Layer_1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlnsXlink="http://www.w3.org/1999/xlink"
-                        className="h-8"
-                        viewBox="0 0 48 48"
-                        style={{ enableBackground: 'new 0 0 48 48' }}
-                        xmlSpace="preserve"
-                    >
-                        <path
-                            style={{
-                                fill: isHomePage ? '#fff' : 'none',
-                                stroke: '#fff',
-                                strokeWidth: 3,
-                                strokeLinejoin: 'round',
-                                strokeMiterlimit: 10,
-                            }}
-                            d="M8.5,41.5h10c0.552,0,1-0.448,1-1v-10c0-1.105,0.895-2,2-2h5c1.105,0,2,0.895,2,2v10c0,0.552,0.448,1,1,1h10c0.552,0,1-0.448,1-1V21.411c0-1.838-0.843-3.575-2.287-4.713L24,5.5L9.787,16.698C8.343,17.836,7.5,19.573,7.5,21.411V40.5C7.5,41.052,7.948,41.5,8.5,41.5z"
-                        />
-                    </svg>
+                    {isHomePage ? (
+                        <HomeIcon sx={{ color: '#fff', fontSize: 28  }} />
+                    ) : (
+                        <HomeOutlinedIcon sx={{ color: '#fff', fontSize: 28  }} />
+                    )}
                 </Link>
-                <Link to="/Search">
-                    <div className="relative flex-row flex items-center justify-center">
+                <Link to="/Search" className="">
+                    <div className="relative flex-row flex items-center  justify-center">
                         <img src={searchIcon} className='h-7 absolute left-2 cursor-pointer z-10' alt="Search Icon" />
                         <input type="text" placeholder="What do you want to hear?" className="w-96 h-12 flex focus:ring-1 border border-transparent hover:border hover:border-white focus:ring-white transition duration-200 text-white placeholder:text-silvergray bg-dark-gray rounded-full py-2 px-14 outline-none focus:cursor-text cursor-pointer" />
                         <svg xmlns="http://www.w3.org/2000/svg" height="26px" className="absolute right-4 transform hover:scale-105 active:scale-0" viewBox="0 -960 960 960" width="26px" fill="#B3B3B3">
@@ -62,10 +49,14 @@ const NavBar = () => {
                     </div>
                 </Link>
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center flex-shrink-0 mr-2 space-x-4">
                 <Link to="/Premium">
                     <button className="bg-white rounded-full px-4 py-2 font-bold text-sm transform hover:scale-105">Upgrade to Premium</button>
                 </Link>
+                <div className="flex flex-row items-center gap-1 hover:scale-105 text-white text-sm">
+                    <CircleArrowDown size={18} color="#fff" />
+                    <p>Install the app</p>
+                </div>
                 <img src={bellNotification} className="w-6 transform active:scale-100 hover:scale-105"></img>
                 <div className="relative inline-block">
                     <div className="flex bg-dark-gray rounded-full p-2 flex-row cursor-pointer" onClick={toggleDropdown}>

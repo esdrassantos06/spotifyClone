@@ -6,6 +6,7 @@
     border: 0;
     outline: 0;
 }
+
 *::before,
 *::after {
     box-sizing: inherit;
@@ -14,6 +15,7 @@
 button {
     cursor: pointer;
 }
+
 /***** End css reset *****/
 
 @font-face {
@@ -229,17 +231,57 @@ button {
 
 
 
-.spotify-mix-regular{
+.spotify-mix-regular {
     font-family: 'Spotify Mix';
     font-weight: normal;
     font-style: normal;
 }
 
-.spotify-mix{
+.spotify-mix {
     font-family: 'Spotify Mix';
 }
 
-.spotify-mix-bold{
+.spotify-mix-bold {
     font-family: 'Spotify Mix';
     font-weight: bold;
+}
+
+.gradientBG {
+    background: rgb(90, 46, 238);
+    background: linear-gradient(141deg, rgba(90, 46, 238, 1) 44%, rgba(180, 159, 248, 1) 89%);
+}
+
+
+* {
+    --sb-track-color: rgba(41, 41, 41, 0.7);
+    --sb-thumb-color: rgba(90, 90, 90, 0.7);
+    --sb-size: 14px;
+}
+
+*::-webkit-scrollbar {
+    width: var(--sb-size);
+    background: transparent;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 3px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    * {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+}
+
+
+  
+.sidebar-content {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
 }
