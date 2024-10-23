@@ -21,37 +21,13 @@ function Home() {
 
   return (
     <>
-      <main className='flex flex-row pt-16'>
-        <Sidebar onToggleSidebar={handleToggleSidebar} />
-        <div className={`bg-mainBackground flex flex-wrap mt-4 ${sidebarOpen ? 'ml-[26.3%]' : 'ml-[6%]'} flex-col w-full text-white`}>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
-          <div>Conteudo gigante</div>
+      <main className='flex flex-row'>
+        <div className={`bg-mainBackground flex p-2 flex-wrap mt-4 ${sidebarOpen ? 'ml-[26.3%]' : 'ml-[5%]'} flex-col w-full text-white`}>
         </div>
+<Sidebar onToggleSidebar={handleToggleSidebar} />
       </main>
-      <Footer sidebarOpen={sidebarOpen} className="fixed bottom-0 left-0 w-full z-[999]" />
-      <MusicPlayer className="fixed bottom-0 left-0 w-full z-[1000] h-28" />
+      <MusicPlayer />
+      <Footer sidebarOpen={sidebarOpen} />
     </>
   );
 }

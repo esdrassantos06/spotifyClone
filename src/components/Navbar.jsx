@@ -22,7 +22,7 @@ const NavBar = () => {
     const isHomePage = location.pathname === "/";
 
     return (
-        <nav className='flex z-50  flex-row w-full justify-between items-center'>
+        <nav className='flex z-[999] flex-row w-full justify-between items-center'>
             <div className="flex items-center ml-5 flex-shrink-0 space-x-4">
                 <Link to="/">
                     <img src={spotifyBlackLogo} className="h-10 filter invert cursor-pointer" alt="Spotify" />
@@ -72,8 +72,10 @@ const NavBar = () => {
                                 </li>
                                 <li className="px-4 py-2 rounded-sm hover:bg-almostBlackHover cursor-default hover:underline">Profile</li>
                                 <li className="flex items-center px-4 py-2 rounded-sm hover:bg-almostBlackHover cursor-default hover:underline">
+                                <Link to="/Premium" className="flex">
                                     Upgrade to Premium
                                     <img src={RedirectIcon} className="h-6 ml-auto invert filter" />
+                                </Link>
                                 </li>
                                 <div className="border-b border-zinc-700">
                                     <li className="px-4 py-2 rounded-sm hover:bg-almostBlackHover cursor-default hover:underline">Settings</li>

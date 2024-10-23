@@ -3,9 +3,10 @@ import '../App.css';
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 import MusicPlayer from "../components/musicPlayer"
+import GridComponent from '../components/GridComponent';
 
 const Search = () => {
-    const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     document.body.classList.add('bg-black', 'w-full', 'h-screen');
@@ -18,24 +19,21 @@ const Search = () => {
   const handleToggleSidebar = (isOpen) => {
     setSidebarOpen(isOpen);
   };
-    return (
-        <>
-        <main className='flex flex-row pt-16'>
-          <Sidebar onToggleSidebar={handleToggleSidebar} />
-          <div className={`bg-mainBackground h-fit flex flex-wrap mt-4 ${sidebarOpen ? 'ml-[26.3%]' : 'ml-[5.5%]'} flex-col w-full text-white`}>
-            <div>Seach</div>
-            <div>Seach</div>
-            <div>Seach</div>
-            <div>Seach</div>
-            <div>Seach</div>
-            <div>Seach</div>
-            <div>Seach</div>
+  return (
+    <>
+      <main className='flex flex-col pt-16'>
+        <Sidebar onToggleSidebar={handleToggleSidebar} />
+        <div className={`bg-mainBackground rounded-tl-lg rounded-tr-lg h-fit flex mt-4 ${sidebarOpen ? 'ml-[26.3%]' : 'ml-[5.5%]'} flex-col w-[94%] text-white`}>
+            <h1 className='font-bold p-4 ml-4 mt-6 text-2xl'>Browse all sections</h1>
+          <div className='flex flex-col justify-start items-center'>
+          <GridComponent/>
           </div>
-        </main>
-        <MusicPlayer />
-        <Footer sidebarOpen={sidebarOpen} />
-      </>
-    );
-  }
+        </div>
+      <Footer sidebarOpen={sidebarOpen} />
+      </main>
+      <MusicPlayer />
+    </>
+  );
+}
 
 export default Search;

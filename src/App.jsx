@@ -25,14 +25,11 @@ function App() {
 
   return (
       <>
-          <header className='bg-black fixed w-screen p-3'>
+          <header className='bg-black fixed z-[999] w-screen p-3'>
               <Navbar />
           </header>
           <div className='rounded-lg'>
-              <div className="flex-grow">
                   <Outlet />
-              </div>
-          
           </div>
       </>
   );
