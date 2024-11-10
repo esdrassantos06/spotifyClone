@@ -1,10 +1,10 @@
 import React from 'react';
 import '../App.css';
 
-const Footer = ({ sidebarOpen }) => {
+const Footer = () => {
     return (
-        <footer className=' mb-24 z-[999]' >
-            <div className={`flex flex-row items-start justify-between w-[94%] relative bg-mainBackground text-gray-300 bottom-0 ${sidebarOpen ? 'ml-[26.3%]' : 'ml-[5.5%]'} border-b-[1px] border-gray-700 p-4`}>
+        <footer className=' w-full h-80' >
+            <div className={`flex flex-row items-start justify-between w-full bg-mainBackground text-gray-300 bottom-0 border-b-[1px] border-gray-700 p-4`}>
                 <div className='flex gap-1 flex-col'>
                     <p className='text-white spotify-mix-bold'>Company</p>
                     <a href='#' className=' select-text hover:underline'>About</a>
@@ -60,14 +60,14 @@ const Footer = ({ sidebarOpen }) => {
                     </a>
                 </div>
             </div>
-            <div className={`flex w-[94%] rounded-bl-lg rounded-br-lg flex-row ${sidebarOpen ? 'ml-[26.3%]' : 'ml-[5.5%]'} bg-mainBackground text-sm justify-between h-32 items-center text-gray-300 `}>
+            <div className={`flex w-full max-w-[100vw] mt-12 rounded-bl-lg rounded-br-lg flex-row bg-mainBackground text-[0.875rem] justify-between items-center text-gray-300 `}>
                 <div className='flex ml-7 justify-center items-center flex-row gap-5'>
-                    <a href='#' className='select-text hover:text-white transform hover:scale-105'>Legal</a>
-                    <a href='#' className='select-text hover:text-white transform hover:scale-105'>Security and Privacy Center</a>
-                    <a href='#' className='select-text hover:text-white transform hover:scale-105'>Privacy Policy</a>
-                    <a href='#' className='hover:underline transform hover:scale-105'>Cookie settings</a>
-                    <a href='#' className='select-text hover:text-white transform hover:scale-105'>About ads</a>
-                    <a href='#' className='select-text hover:text-white transform hover:scale-105'>Accessibility</a>
+                    <a href='#' className='select-text hover:text-white transform '>Legal</a>
+                    <a href='#' className='select-text hover:text-white transform '>Security and Privacy Center</a>
+                    <a href='#' className='select-text hover:text-white transform '>Privacy Policy</a>
+                    <a href='#' className='hover:underline hover:text-white transform '>Cookie settings</a>
+                    <a href='#' className='select-text hover:text-white transform '>About ads</a>
+                    <a href='#' className='select-text hover:text-white transform '>Accessibility</a>
                 </div>
                 <div className='mr-10 select-text'>&copy; 2024 Spotify AB</div>
             </div>

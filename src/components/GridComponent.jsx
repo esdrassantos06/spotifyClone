@@ -85,13 +85,13 @@ const GridComponent = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 relative z-0 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 mb-20 py-2 gap-4 w-[97%] mx-auto">
+    <div className="grid grid-cols-1 relative z-0 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 mb-12 py-2 gap-4 w-[97%] mx-auto">
       {items.map((item, index) => (
         <div 
           key={index} 
           className={`${colors[index % colors.length]} text-white h-36 w-full cursor-pointer p-4 rounded-lg flex items-start justify-start font-semibold text-2xl relative overflow-hidden`}
         >
-          <span>{item}</span>
+          <span className='z-10 w-2/4'>{item}</span>
           <img 
             src={images[index % images.length]} 
             alt={item} 

@@ -21,15 +21,21 @@ const Search = () => {
   };
   return (
     <>
-      <main className='flex flex-col pt-16'>
+      <main className='flex flex-row pt-16'>
         <Sidebar onToggleSidebar={handleToggleSidebar} />
-        <div className={`bg-mainBackground rounded-tl-lg rounded-tr-lg h-fit flex mt-4 ${sidebarOpen ? 'ml-[26.3%]' : 'ml-[5.5%]'} flex-col w-[94%] text-white`}>
-            <h1 className='font-bold p-4 ml-4 mt-6 text-2xl'>Browse all sections</h1>
-          <div className='flex flex-col justify-start items-center'>
-          <GridComponent/>
+        <div className='w-screen'>
+          <div className={`bg-mainBackground rounded-tl-lg rounded-tr-lg rounded-bl-lg rounded-br-lg flex mt-2 ml-2 flex-col w-[99%] text-white`}>
+            <div className='h-[calc(100vh-171.4px)]'>
+              <div className='sticky scrollbar h-full max-h-[100vh] overflow-y-hidden hover:overflow-y-scroll'>
+                <h1 className='font-bold p-4 ml-4 mt-6 text-2xl'>Browse all sections</h1>
+                <div className='flex flex-col justify-start items-center'>
+                  <GridComponent />
+                </div>
+                <Footer sidebarOpen={sidebarOpen} />
+              </div>
+            </div>
           </div>
         </div>
-      <Footer sidebarOpen={sidebarOpen} />
       </main>
       <MusicPlayer />
     </>

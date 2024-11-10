@@ -12,11 +12,11 @@ import { ChevronUp } from 'lucide-react';
 
 function MusicPlayer() {
     return (
-        <div className='music-player h-28 text-white fixed bottom-0 z-[999]  w-full flex flex-row items-center justify-between bg-black'>
+        <div className='music-player h-[90px] text-white fixed bottom-0 z-[999]  w-full flex flex-row items-center justify-between bg-black'>
             <div className="flex-row flex items-center">
                 <div className='ml-7 group flex-row flex relative'>
                     <img src={a7xAlbum} className='w-16 mr-2'></img>
-                    <ChevronUp size={24} color='#FFF' className='hover:scale-110 hidden group-hover:flex absolute right-2 top-4 bg-dark-gray bg-opacity-80 rounded-full transform' />
+                    <ChevronUp size={24} color='#FFF' className='hover:scale-110 hidden group-hover:flex absolute right-2 top-2 bg-dark-gray bg-opacity-80 rounded-full transform' />
                 </div>
             <div className='flex flex-col gap-1'>
                 <p className='text-sm hover:underline'>Hail To The King</p>

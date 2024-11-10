@@ -16,6 +16,13 @@ button {
     cursor: pointer;
 }
 
+
+.scrollbar {
+    scrollbar-gutter: stable;
+    
+    
+}
+
 /***** End css reset *****/
 
 @font-face {
@@ -255,12 +262,12 @@ button {
 * {
     --sb-track-color: rgba(41, 41, 41, 0.7);
     --sb-thumb-color: rgba(90, 90, 90, 0.7);
-    --sb-size: 14px;
 }
 
 *::-webkit-scrollbar {
-    width: var(--sb-size);
+    width: 10px;
     background: transparent;
+
 }
 
 *::-webkit-scrollbar-track {
@@ -280,8 +287,29 @@ button {
 }
 
 
-  
-.sidebar-content {
-    max-height: calc(100vh - 100px);
-    overflow-y: auto;
+
+
+/* No hover, a barra de rolagem aparece */
+.scrollbar:hover::-webkit-scrollbar {
+    display: block;
+    width: 10px;
+}
+
+.scrollbar:hover::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 3px;
+}
+
+.gradientHome {
+    background: #0F2027;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
