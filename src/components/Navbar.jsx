@@ -3,13 +3,51 @@ import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
 import spotifyBlackLogo from '../assets/iconSpotify.png';
-import searchIcon from '../assets/searchIcon.png';
 import bellNotification from '../assets/notificationBell.png';
 import userIcon from "../assets/IconUser.png";
 import RedirectIcon from "../assets/redirect.png";
 import { CircleArrowDown } from 'lucide-react';
 import { House } from 'phosphor-react';
-import { BoxArrowUp } from '@phosphor-icons/react'
+import { BoxArrowUp, MagnifyingGlass, Bell } from '@phosphor-icons/react';
+
+import Tooltip from '@mui/material/Tooltip';
+import { styled } from '@mui/material/styles';
+
+const CustomTooltip = styled(({ className, ...props }) => (
+    <Tooltip
+        {...props}
+        classes={{ popper: className }}
+        PopperProps={{
+            modifiers: [
+                {
+                    name: 'preventOverflow',
+                    options: {
+                        boundary: 'viewport',
+                    },
+                },
+                {
+                    name: 'hide',
+                    enabled: false,
+                },
+            ],
+            disablePortal: false,
+        }}
+    />
+))(({ theme }) => ({
+    '& .MuiTooltip-tooltip': {
+        backgroundColor: "#282828",
+        color: 'white',
+        display: 'flex',
+        flexDirection: 'row',
+        fontSize: '0.875rem',
+        padding: '0.5rem 0.75rem',
+        borderRadius: '0.5rem',
+        boxShadow: "#121212",
+    },
+    '& .MuiTooltip-arrow': {
+        color: '#282828',
+    },
+}));
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -29,24 +67,30 @@ const NavBar = () => {
                     <img src={spotifyBlackLogo} className="h-10 filter invert cursor-pointer" alt="Spotify" />
                 </Link>
             </div>
-            <div className="flex ml-32 flex-grow items-end justify-center relative">
-                <Link
-                    to="/"
-                    className="p-2 mr-2 bg-dark-gray rounded-full cursor-pointer active:grayscale transition transform active:scale-100 hover:scale-105"
-                    id="home"
-                >
-                    {isHomePage ? (
-                        <House color="#fff" weight="fill" size={28} />
-                    ) : (
-                        <House color="#fff" size={28} />
-                    )}
-                </Link>
-                <Link to="/Search" className="">
-                    <div className="relative flex-row flex items-center  justify-center">
-                        <img src={searchIcon} className='h-7 absolute left-2 cursor-pointer z-10' alt="Search Icon" />
+            <div className="flex ml-32 flex-grow items-center justify-center relative">
+                <CustomTooltip title='Home'>
+                    <Link
+                        to="/"
+                        className="p-2 mr-2 bg-dark-gray rounded-full cursor-pointer active:grayscale transition transform active:scale-100 hover:scale-105"
+                        id="home"
+                    >
+                        {isHomePage ? (
+                            <House color="#fff" weight="fill" size={28} />
+                        ) : (
+                            <House color="#B3B3B3" size={28} />
+                        )}
+                    </Link>
+                </CustomTooltip>
+                <Link to="/Search">
+                    <div className="relative flex-row flex items-center group  justify-center">
+                        <CustomTooltip title='Search'>
+                            <MagnifyingGlass size='32' color='#B3B3B3' className='h-7 absolute group-hover:fill-white left-2 cursor-pointer z-10' alt="Search Icon" />
+                        </CustomTooltip>
                         <input type="text" placeholder="What do you want to hear?" className="w-96 h-12 flex focus:ring-1 border border-transparent hover:border hover:border-white focus:ring-white transition duration-200 text-white placeholder:text-silvergray bg-dark-gray rounded-full py-2 px-14 outline-none focus:cursor-text cursor-pointer" />
                         <div className="border-l absolute right-11 top-2">
-                            <BoxArrowUp size={32} weight={isSearchPage ? 'fill' : 'regular'} className={`absolute ${isSearchPage ? 'text-white' : 'text-[#B3B3B3]'} transform hover:scale-105 border-zinc-700 active:scale-100`} />
+                            <CustomTooltip title={`Navigate`}>
+                                <BoxArrowUp size={32} weight={isSearchPage ? 'fill' : 'regular'} className={`absolute ${isSearchPage ? 'text-white' : 'text-[#B3B3B3]'} transform hover:scale-105 group-hover:text-white border-zinc-700 active:scale-100`} />
+                            </CustomTooltip>
                         </div>
                     </div>
                 </Link>
@@ -59,10 +103,14 @@ const NavBar = () => {
                     <CircleArrowDown size={18} color="#fff" />
                     <p>Install the app</p>
                 </div>
-                <img src={bellNotification} className="w-6 transform active:scale-100 hover:scale-105"></img>
+                <CustomTooltip title="News">
+                    <Bell size='20' color='#b3b3b3' className=" transform active:scale-100 hover:scale-105" />
+                </CustomTooltip>
                 <div className="relative inline-block">
                     <div className="flex bg-dark-gray rounded-full p-2 flex-row cursor-pointer" onClick={toggleDropdown}>
-                        <img src={userIcon} className="w-8 filter invert transform hover:scale-105" alt="User Icon" />
+                        <CustomTooltip title={`${isOpen ? '' : 'User'}`}>
+                            <img src={userIcon} className="w-8 filter invert transform hover:scale-105" alt="User Icon" />
+                        </CustomTooltip>
                     </div>
 
                     {isOpen && (
