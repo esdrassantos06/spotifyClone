@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import brunophoto from '../assets/photos/brunoMars.jpg';
 import drake from '../assets/photos/drake.jpg';
-import eminem from '../assets/photos/eminem.jpg';
+import eminemImage from '../assets/photos/eminem.jpg';
 import tyler from '../assets/photos/tyler.jpg';
 import tylerAlbum from '../assets/albums/tylerAlbum.jpg';
 import TupacAlbum from '../assets/albums/greatest-hits2pac.jpg';
@@ -48,9 +48,8 @@ const CustomTooltip = styled(({ className, ...props }) => (
     },
 }));
 
-const Sidebar = ({ onToggleSidebar }) => {
+const Sidebar = () => {
 
-    const [hover, setHover] = useState(false);
 
     const [isOpen, setIsOpen] = useState(false);
     const [showNames, setShowNames] = useState(false);
@@ -58,14 +57,13 @@ const Sidebar = ({ onToggleSidebar }) => {
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
         setShowNames(!isOpen);
-        onToggleSidebar(!isOpen);
     };
 
     const artists = [
         { id: 1, name: 'Bruno Mars', img: brunophoto, role: 'Artist' },
         { id: 2, name: 'Tyler The Creator', img: tyler, role: 'Artist' },
         { id: 3, name: 'Drake', img: drake, role: 'Artist' },
-        { id: 4, name: 'Eminem', img: eminem, role: 'Artist' },
+        { id: 4, name: 'Eminem', img: eminemImage, role: 'Artist' },
 
     ];
 
