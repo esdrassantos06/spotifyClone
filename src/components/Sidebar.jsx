@@ -1,7 +1,8 @@
 import  { useState } from 'react';
 import brunophoto from '../assets/photos/brunoMars.jpg';
 import drake from '../assets/photos/drake.jpg';
-import eminemImage from '../assets/photos/eminem.jpg';
+
+import eminemImage from '../assets/photos/Eminem.jpg';
 import tyler from '../assets/photos/tyler.jpg';
 import tylerAlbum from '../assets/albums/tylerAlbum.jpg';
 import TupacAlbum from '../assets/albums/greatest-hits2pac.jpg';
